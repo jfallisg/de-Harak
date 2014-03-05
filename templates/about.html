@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ page.title }} - {{ super() }}
+{% endblock title %}
+
+{% block head %}
+  {{ super() }}
+
+  {% for tag in page.tags %}
+    <meta name="keywords" contents="{{tag}}">
+  {% endfor %}
+
+  {% for description in page.description %}
+    <meta name="description" contents="{{description}}">
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+
+  <section class="about">
+    {{ page.content }}
+  </section>
+
+  <aside class="about-links">
+    <ul class="nav_links_vert">
+      {% if ABOUT_LINKS %}
+        {% for ABOUT_LINK in ABOUT_LINKS %}
+          <li>
+          <a href="{{ ABOUT_LINK.url }}" title="{{ ABOUT_LINK.name }}">{{ ABOUT_LINK.name }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </aside>
+
+{% endblock %}

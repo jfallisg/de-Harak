@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <section class="index-projects">
+    <h1 class="index-heading">PROJECTS</h1>
+    <ul>
+    {% for page in pages %}
+      {% if not page.title == "about" %}
+        <li>
+          <article class="ProjectInList">
+            <h2 class="ProjectInList_title">
+              <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="Permalink to {{ page.title|striptags }}">{{ page.title }}</a>
+            </h2>
+            <span class="ProjectInList_summary"> {{ page.summary }} </span>
+          </article>
+        </li>
+      {% endif %}
+    {% endfor %} <!-- /for page in pages -->
+    </ul>
+  </section><!-- /index-projects -->
+
+  <section class="index-posts">
+    <h1 class="index-heading">POSTS</h1>
+    <ol reversed>
+      {% for article in articles_page.object_list %}
+        <li>
+          <article class="PostInList">
+            <span class="PostInList_title">
+              <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+            </span>
+            <span class="PostInList_date"> | {{ article.locale_date }}</span>
+          </article>
+        </li>
+      {% endfor %} <!-- /for article in articles_page.object_list -->
+    </ol>
+  </section> <!-- /index-posts -->
+    
+{% endblock content %}

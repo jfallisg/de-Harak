@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ article.title }} - {{ super() }}
+{% endblock title %}
+
+{% block head %}
+  {{ super() }}
+
+  {% for tag in article.tags %}
+    <meta name="keywords" contents="{{tag}}">
+  {% endfor %}
+
+  {% for description in article.description %}
+    <meta name="description" contents="{{description}}">
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+  <article class="post">
+    <h1 class="post_title">
+      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+    </h1>
+    <p class="post_date"> | Posted: {{ article.date.strftime("%Y-%m-%d %H:%M") }}
+      {% if article.modified %} 
+        <span> | Last Updated: {{ article.modified }}</span>
+      {% endif %}
+    </p>
+    
+    {{ article.content }}
+
+    {% include 'disqus.html' %}
+
+  </article> <!-- /post -->
+{% endblock %}

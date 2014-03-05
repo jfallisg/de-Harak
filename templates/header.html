@@ -1,0 +1,29 @@
+<header class="masthead">
+  <h1 class="site-title"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+  
+  {% if HEADER_CONTENT and HEADER_CONTENT.bio %}
+      <div class="header-bio">
+          {{ HEADER_CONTENT.bio }}
+      </div>
+  {% endif %}
+
+  <ul class="nav_links_horiz">
+      {% if NAVBAR_HOME_NAME %}
+          <li>
+              <a href="{{ SITEURL }}" title="{{ NAVBAR_HOME_NAME }}">{{ NAVBAR_HOME_NAME }}</a>                
+          </li>
+      {% endif %}
+      {% if NAVBAR_EXTRA_BUTTONS %}
+          {% for NAVBAR_EXTRA_BUTTON in NAVBAR_EXTRA_BUTTONS %}
+              <li>
+              <a href="{{ NAVBAR_EXTRA_BUTTON.url }}" title="{{ NAVBAR_EXTRA_BUTTON.name }}">{{ NAVBAR_EXTRA_BUTTON.name }}</a>
+              </li>
+          {% endfor %}
+      {% endif %}
+      {% if NAVBAR_ABOUT_NAME %}
+          <li>
+              <a href="{{ SITEURL }}/pages/about.html" title="{{ NAVBAR_ABOUT_NAME }}">{{ NAVBAR_ABOUT_NAME }}</a>                
+          </li>
+      {% endif %}
+  </ul>
+</header>

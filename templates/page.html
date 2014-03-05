@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ page.title }} - {{ super() }}
+{% endblock title %}
+
+{% block head %}
+  {{ super() }}
+
+  {% for tag in page.tags %}
+    <meta name="keywords" contents="{{tag}}">
+  {% endfor %}
+
+  {% for description in page.description %}
+    <meta name="description" contents="{{description}}">
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+  <article class="page">
+    <h1 class="page_title">
+      <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="Permalink to {{ page.title|striptags }}">{{ page.title }}</a>
+    </h1>
+    <p class="page_date">|{{ page.locale_date }}</p>
+  
+    {{ page.content }}
+
+    {% include 'disqus.html' %}
+
+  </article> <!-- /page -->
+{% endblock %}

@@ -336,6 +336,22 @@ table td {
   font-size: .7em;
 }
 
+/* about page */
+
+.rowoficons {
+  font-size: 0.8em;
+  margin: 0 0 3em 0;
+}
+
+.icon {
+  white-space: pre;
+  margin: 0 0.5em 0 0;
+  color: #000;
+}
+
+.aboutsection {
+  margin: 0 0 3em 0;
+}
 
 /* Responsive
 -------------------------------------------------------------------*/

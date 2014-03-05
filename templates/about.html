@@ -23,16 +23,4 @@
     {{ page.content }}
   </section>
 
-  <aside class="about-links">
-    <ul class="nav_links_vert">
-      {% if ABOUT_LINKS %}
-        {% for ABOUT_LINK in ABOUT_LINKS %}
-          <li>
-          <a href="{{ ABOUT_LINK.url }}" title="{{ ABOUT_LINK.name }}">{{ ABOUT_LINK.name }}</a>
-          </li>
-        {% endfor %}
-      {% endif %}
-    </ul>
-  </aside>
-
 {% endblock %}

@@ -17,11 +17,7 @@ This is a somewhat minimally featured theme, visually inspired by Rudolph de Har
 
 ## about.md
 
-+ Supports custom CSS, though default is broken down by:
-	+ BIO
-	+ RESUME
-	+ ABOUT THIS PAGE
-	+ ABOUT PAGE LINKS (this is an ASIDE)
++ Builds from its own custom template 'about.html', modify its section in CSS to achieve your own custom layout.
 + Same header as INDEX
 
 Feel free to fork and modify as you will!

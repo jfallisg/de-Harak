@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ page.title }} - {{ super() }}
+{% endblock title %}
+
+{% block head %}
+  {{ super() }}
+
+  {% for tag in page.tags %}
+    <meta name="keywords" contents="{{tag}}">
+  {% endfor %}
+
+  {% for description in page.description %}
+    <meta name="description" contents="{{description}}">
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+  <article class="page">
+  
+    {{ page.content }}
+
+    {% include 'disqus.html' %}
+
+  </article> <!-- /page -->
+{% endblock %}
